@@ -1,11 +1,13 @@
 
 
 import menuPrincipal from "../index.js";
+import menuId from "./id.js";
 import prompt from "prompt-sync";
 
 function menuLivros() {
     const input = prompt();
-    const opcoes = [
+    const opcoes = 
+    [
         "1 - Cadastrar livro",
         "2 - Editar livros",
         "3 - Excluir livros",
@@ -15,24 +17,16 @@ function menuLivros() {
     ] 
     const menu = opcoes.join("\n");
     console.log(menu);
-    switch(opcoes) {
-        case "0":
+    let test = input('Escolha uma das opções acima. ');
+        if(test === "0") {
             menuPrincipal();
-            break;
-        default:
-            menuLivros() 
+    }
+        else if(test === "5") {
+            menuId();
+        }
+        else {
+            menuLivros(); 
     }
 }
 
 export default menuLivros;
-
-
-/*
-{
-    id: 1,
-    titulo: "Harry Potter",
-    autor: "J.K Rowling,
-    editora: "Rocco",
-    emprestado: false
-};
-*/

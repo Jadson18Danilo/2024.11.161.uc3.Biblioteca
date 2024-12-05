@@ -1,3 +1,5 @@
+
+
 import menuLivros from "./livros/livros.js";
 import prompt from "prompt-sync";
 
@@ -11,13 +13,15 @@ function menuPrincipal() {
     ] 
     const menu = opcoes.join("\n");
     console.log(menu);
-    let test = input('Escolha uma das opções: '); 
-    switch(test) {
-        case "1":
-            menuLivros();
-            break;
-        default:
-            menuPrincipal()
+    let test = input('Escolha uma das opções acima. '); 
+    if(test === "1") {
+         menuLivros();
+    }
+    else if(test === "0") {
+        console.log(`Sistema encerrado.`);
+    }
+    else {
+        menuPrincipal();  
     }
 }
 
