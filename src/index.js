@@ -1,7 +1,6 @@
-
-
 import menuLivros from "./livros/livros.js";
 import prompt from "prompt-sync";
+
 
 function menuPrincipal() {
     const input = prompt();

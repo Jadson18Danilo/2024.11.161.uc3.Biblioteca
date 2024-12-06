@@ -1,8 +1,28 @@
 
 
 import menuPrincipal from "../index.js";
-import menuId from "./id.js";
 import prompt from "prompt-sync";
+import { dados } from "../../data/livros.js"
+
+const input = prompt();
+
+const livros = dados;
+
+function cadastrarLivro() {
+    const id = Math.floor(Math.random() * 1000000).toString();
+    const titulo = input("Título: ");
+    const autor = input("Autor: ");
+    const editora = input("Editora: ");
+    const emprestado = false;
+    
+    livros.push({ id, titulo, autor, editora, emprestado });
+
+    console.log("Livro cadastrado com sucesso!")
+}
+
+function listarTodosLivros() {
+    livros.forEach(livro => console.log(`I Id: ${livro.id} - Título: ${livro.titulo}`));
+}
 
 function menuLivros() {
     const input = prompt();
@@ -17,12 +37,26 @@ function menuLivros() {
     ] 
     const menu = opcoes.join("\n");
     console.log(menu);
-    let test = input('Escolha uma das opções acima. ');
-        if(test === "0") {
+    let resposta = input('Escolha uma das opções acima. ');
+    
+    switch(resposta) {
+        case "1":
+    }
+        if(resposta === "0") {
             menuPrincipal();
     }
-        else if(test === "5") {
-            menuId();
+        else if(resposta === "1") {
+            cadastrarLivro();
+        }
+        else if(resposta === 4) {
+            listarTodosLivros();
+            menuLivros();
+            //break em switch
+        //default:
+            //menuLivros();
+        }
+        else if(resposta === "5") {
+            //menuId();
         }
         else {
             menuLivros(); 
