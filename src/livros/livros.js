@@ -20,8 +20,53 @@ function cadastrarLivro() {
     console.log("Livro cadastrado com sucesso!")
 }
 
+function editarLivro() {
+    console.log("Editar Livro.");
+
+    const id = input(" ID do livro: ");
+    const index = livros.findIndex(livro => livro.id === id);
+    if (index >= 0) {
+        const titulo = input("Insira o nome do novo Título: ");
+        const autor = input("Insira o nome do novo Autor: ");
+        const editora = input("Insira o nome da nova Editora: ");
+        livros[index] = { ...livros[index], titulo, autor, editora };
+        console.log("Livro editado com sucesso!");
+       } else {
+        console.log("Livro não encontrado!");
+       }
+}
+
+function excluirLivro() {
+    console.log("Excluir Livro.");
+
+    const id = input("ID do livro: ");
+    const index = livros.findIndex(livro => livro.id === id);
+    if (index >= 0) {
+        livros.splice(index, 1);
+        console.log(" Livro excluído com sucesso!");
+    } else {
+        console.log("Livro não encontrado!");
+    }
+}
+
 function listarTodosLivros() {
     livros.forEach(livro => console.log(`I Id: ${livro.id} - Título: ${livro.titulo}`));
+}
+
+function buscarLivroPorId() {
+    console.log("Buscar livro por ID");
+
+    const id = input(" ID do livro: ");
+    const livro = livros.find(livro => livro.id === id);
+    if (livro) {
+        console.log(`Id: ${livro.id}`);
+        console.log(`Título: ${livro.titulo}`);
+        console.log(`Autor: ${livro.autor}`);
+        console.log(`Editora: ${livro.editora}`);
+        console.log(`Emprestado: ${livro.emprestado}`);
+    } else {
+        console.log("Livro não encontrado!");
+    }
 }
 
 function menuLivros() {
@@ -39,28 +84,33 @@ function menuLivros() {
     console.log(menu);
     let resposta = input('Escolha uma das opções acima. ');
     
-    switch(resposta) {
-        case "1":
-    }
+   
         if(resposta === "0") {
             menuPrincipal();
-    }
+        }
         else if(resposta === "1") {
             cadastrarLivro();
+            menuLivros();
         }
-        else if(resposta === 4) {
+        else if(resposta === "2") {
+            editarLivro();
+            menuLivros();
+        }
+        else if(resposta === "3") {
+            excluirLivro();
+            menuLivros();
+        }
+        else if(resposta === "4") {
             listarTodosLivros();
             menuLivros();
-            //break em switch
-        //default:
-            //menuLivros();
         }
         else if(resposta === "5") {
-            //menuId();
+            buscarLivroPorId();
+            menuLivros()
         }
         else {
-            menuLivros(); 
-    }
+            menuLivros();
+        }
 }
 
 export default menuLivros;

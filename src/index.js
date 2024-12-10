@@ -1,9 +1,10 @@
 import menuLivros from "./livros/livros.js";
 import prompt from "prompt-sync";
+import editarUsuario from "./usuario/usuario.js";
 
+const input = prompt();
 
 function menuPrincipal() {
-    const input = prompt();
     const opcoes = [
         "1 - Livros",
         "2 - Usuários",
@@ -12,11 +13,14 @@ function menuPrincipal() {
     ] 
     const menu = opcoes.join("\n");
     console.log(menu);
-    let test = input('Escolha uma das opções acima. '); 
-    if(test === "1") {
-         menuLivros();
+    let resposta = input('Escolha uma das opções acima. '); 
+    if(resposta === "1") {
+        menuLivros();
     }
-    else if(test === "0") {
+    else if (resposta === "2") {
+        editarUsuario();
+    }
+    else if(resposta === "0") {
         console.log(`Sistema encerrado.`);
     }
     else {
