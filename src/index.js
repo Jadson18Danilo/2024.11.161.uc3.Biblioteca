@@ -1,6 +1,7 @@
 import menuLivros from "./livros/livros.js";
 import prompt from "prompt-sync";
 import editarUsuario from "./usuario/usuario.js";
+import realizarEmprestimo from "./emprestimos/emprestimos.js";
 
 const input = prompt();
 
@@ -20,6 +21,9 @@ function menuPrincipal() {
     else if (resposta === "2") {
         editarUsuario();
     }
+    else if (resposta === "3") {
+        realizarEmprestimo();
+    }
     else if(resposta === "0") {
         console.log(`Sistema encerrado.`);
     }
@@ -30,4 +34,6 @@ function menuPrincipal() {
 
 export default menuPrincipal;
 
+
+console.clear()
 menuPrincipal();
