@@ -1,39 +1,43 @@
-import menuLivros from "./livros/livros.js";
 import prompt from "prompt-sync";
-import editarUsuario from "./usuario/usuario.js";
-import realizarEmprestimo from "./emprestimos/emprestimos.js";
 
-const input = prompt();
+import menuUsuarios from "./usuarios/usuarios.js";
+import menuLivros from "./livros/livros.js";
+import menuEmprestimos from "./emprestimos/emprestimos.js";
 
 function menuPrincipal() {
+    const input = prompt();
     const opcoes = [
-        "1 - Livros",
-        "2 - Usuários",
-        "3 - Empréstimos",
-        "0 - Sair"
-    ] 
+        "+-----------------------------------+",
+        "| Sistema de Biblioteca             |",
+        "+-----------------------------------+",
+        "| 1 - Menu Livros                   |",
+        "| 2 - Menu Usuarios                 |",
+        "| 3 - Menu Emprestimos              |",
+        "| 0 - Sair                          |",
+        "+-----------------------------------+",
+    ]
     const menu = opcoes.join("\n");
     console.log(menu);
-    let resposta = input('Escolha uma das opções acima. '); 
-    if(resposta === "1") {
-        menuLivros();
-    }
-    else if (resposta === "2") {
-        editarUsuario();
-    }
-    else if (resposta === "3") {
-        realizarEmprestimo();
-    }
-    else if(resposta === "0") {
-        console.log(`Sistema encerrado.`);
-    }
-    else {
-        menuPrincipal();  
+    let opcao = input("* Escolha a opção desejada: ");
+    console.clear();
+    switch (opcao) {
+        case "0":
+            break;
+        case "1":
+            menuLivros();
+            break;
+        case "2":
+            menuUsuarios();
+            break;
+        case "3":
+            menuEmprestimos();
+            break;
+        default:
+            menuPrincipal();
     }
 }
 
 export default menuPrincipal;
-
 
 console.clear();
 menuPrincipal();

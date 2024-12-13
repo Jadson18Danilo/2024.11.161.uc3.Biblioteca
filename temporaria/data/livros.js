@@ -1,18 +1,38 @@
 
-
 export const dados = [
     {
-        id: "4448884",
-        titulo: "O Senhor dos Aneis",
-        autor: "J.R.R Tolkien",
+        id: "943565",
+        titulo: "O Senhor dos Anéis",
+        autor: "J. R. R. Tolkien",
         editora: "HarperCollins",
         emprestado: false
     },
     {
-        id: "87598434",
-        titulo: "Harry Potter",
-        autor: "J.K. Rowling",
+        id: "452524",
+        titulo: "Harry Potter e a Pedra Filosofal",
+        autor: "J. K. Rowling",
         editora: "Rocco",
-        emprestado: true
+        emprestado: false
+    },
+    {
+        id: "123456",
+        titulo: "O Pequeno Príncipe",
+        autor: "Antoine de Saint-Exupéry",
+        editora: "Agir",
+        emprestado: false
+    },
+    {
+        id: "789456",
+        titulo: "Dom Casmurro",
+        autor: "Machado de Assis",
+        editora: "Globo",
+        emprestado: false
+    },
+    {
+        id: "456789",
+        titulo: "O Diário de Anne Frank",
+        autor: "Anne Frank",
+        editora: "Record",
+        emprestado: false
     }
 ]

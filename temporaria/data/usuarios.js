@@ -1,6 +1,4 @@
 
-
-
 export const dados = [
     {
         cpf: "12345678901",
